@@ -1,5 +1,23 @@
 # DiM: Diffusion Mamba for Efficient High-Resolution Image Synthesis
 
+<img src="assets/teaser256.png" alt="drawing" width="600"/>
+
+<img src="assets/teaser512.png" alt="drawing" width="600"/>
+
+<img src="assets/teaser1024.png" alt="drawing" width="800"/>
+
+## Paper
+
+Coming soooooon
+
+<img src="main.png" alt="drawing" width="500"/>
+
+## Acknowledge
+
+This code is mainly built on [U-ViT](https://github.com/baofff/U-ViT) and [Mamba](https://github.com/state-spaces/mamba).
+
+Installing Mamba may cost a lot of effort. If encountering problems, the [issues in Mamba](https://github.com/state-spaces/mamba/issues) may have the answers.
+
 ## Installation
 
 ```bash
@@ -31,20 +49,24 @@ Please follow [U-ViT](https://github.com/baofff/U-ViT), the same subtitle.
 
 ```sh
 # ImageNet 256x256 
-accelerate launch --multi_gpu --gpu_ids 0,1,2,3,4,5,6,7 --main_process_port 20039 --num_processes 8 --mixed_precision bf16 ./eval_ldm_discrete.py --config=configs/imagenet256_H_mambaenc_pad_cross_conv_skip1_2scan_vaeema_ada_4scan_test_skiptune.py --nnet_path='workdir/imagenet256_H_mambaenc_pad_cross_conv_skip1_2scan_vaeema_ada_4scan/default/ckpts/425000.ckpt/nnet_ema.pth'
+accelerate launch --multi_gpu --gpu_ids 0,1,2,3,4,5,6,7 --main_process_port 20039 --num_processes 8 --mixed_precision bf16 ./eval_ldm_discrete.py --config=configs/imagenet256_H_DiM.py --nnet_path='workdir/imagenet256_H_DiM/default/ckpts/425000.ckpt/nnet_ema.pth'
 
-# ImageNet 256x256 (U-ViT-H/2)
-accelerate launch --multi_gpu --num_processes 8 --mixed_precision fp16 train_ldm_discrete.py --config=configs/imagenet256_uvit_huge.py
-
-# ImageNet 512x512 (U-ViT-L/4)
-accelerate launch --multi_gpu --num_processes 8 --mixed_precision fp16 train_ldm.py --config=configs/imagenet512_uvit_large.py
-
-# ImageNet 512x512 (U-ViT-H/4)
-accelerate launch --multi_gpu --num_processes 8 --mixed_precision fp16 train_ldm_discrete.py --config=configs/imagenet512_uvit_huge.py
-
-# MS-COCO (U-ViT-S/2)
-accelerate launch --multi_gpu --num_processes 4 --mixed_precision fp16 train_t2i_discrete.py --config=configs/mscoco_uvit_small.py
-
-# MS-COCO (U-ViT-S/2, Deep)
-accelerate launch --multi_gpu --num_processes 4 --mixed_precision fp16 train_t2i_discrete.py --config=configs/mscoco_uvit_small.py --config.nnet.depth=16
+# ImageNet 512x512 
+accelerate launch --multi_gpu --gpu_ids 0,1,2,3,4,5,6,7 --main_process_port 20039 --num_processes 8 --mixed_precision bf16 ./eval_ldm_discrete.py --config=configs/imagenet512_H_DiM_ft.py --nnet_path='workdir/imagenet512_H_DiM_ft/default/ckpts/64000.ckpt/nnet_ema.pth'
 ```
+
+## Training
+
+```sh
+# Cifar 32x32
+accelerate launch --multi_gpu --num_processes 8 --mixed_precision bf16 ./train_ldm_discrete.py --config=configs/imagenet256_H_DiM.py
+
+# ImageNet 256x256 
+accelerate launch --multi_gpu --num_processes 8 --mixed_precision bf16 ./train_ldm_discrete.py --config=configs/imagenet256_H_DiM.py
+
+# ImageNet 512x512 
+accelerate launch --multi_gpu --num_processes 8 --mixed_precision bf16 ./train_ldm_discrete.py --config=configs/imagenet512_H_DiM_ft.py
+```
+
+# Citation
+
