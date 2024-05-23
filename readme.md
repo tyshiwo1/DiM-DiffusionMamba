@@ -43,9 +43,13 @@ Please follow [U-ViT](https://github.com/baofff/U-ViT), the same subtitle.
 | [ImageNet 256x256 (Huge/2)](https://drive.google.com/drive/folders/1TTEXKKhnJcEV9jeZbZYlXjiPyV87ZhE0?usp=sharing) | 2.40 |        425K         |    768     |
 | [ImageNet 512x512 (fine-tuned Huge/2)](https://drive.google.com/drive/folders/1lupf4_dj4tWCpycnraGrgqh4P-6yK5Xe?usp=sharing) | 3.94 |      Fine-tune      |    240     |
 
-**Note: We use `nnet_ema.pth` for evaluation instead of `nnet.pth`.  `nnet.pth` is the trained model. **
+**Note: **
+
+**We use `nnet_ema.pth` for evaluation instead of `nnet.pth`.  `nnet.pth` is the trained model. **
 
 ## Evaluation
+
+**Use `eval_ldm_discrete.py` for evaluation and generating images with CFG**
 
 ```sh
 # ImageNet 256x256 
