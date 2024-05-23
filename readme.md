@@ -69,7 +69,7 @@ accelerate launch --multi_gpu --gpu_ids 0,1,2,3,4,5,6,7 --main_process_port 2003
 
 ```sh
 # Cifar 32x32
-accelerate launch --multi_gpu --num_processes 8 --mixed_precision bf16 ./train_ldm_discrete.py --config=configs/imagenet256_H_DiM.py
+accelerate launch --multi_gpu --num_processes 8 --mixed_precision fp16 ./train_ldm_discrete.py --config=configs/imagenet256_H_DiM.py
 
 # ImageNet 256x256 
 accelerate launch --multi_gpu --num_processes 8 --mixed_precision bf16 ./train_ldm_discrete.py --config=configs/imagenet256_H_DiM.py
