@@ -16,7 +16,7 @@ The official implementation of our paper [DiM: Diffusion Mamba for Efficient Hig
 
 This code is mainly built on [U-ViT](https://github.com/baofff/U-ViT) and [Mamba](https://github.com/state-spaces/mamba).
 
-Installing Mamba may cost a lot of effort. If encountering problems, the [issues in Mamba](https://github.com/state-spaces/mamba/issues) may have the answers.
+Installing Mamba may cost a lot of effort. If you encounter problems, this [issues in Mamba](https://github.com/state-spaces/mamba/issues) may be very helpful.
 
 ## Installation
 
@@ -45,7 +45,9 @@ Please follow [U-ViT](https://github.com/baofff/U-ViT), the same subtitle.
 
 **Note:**
 
-**We use `nnet_ema.pth` for evaluation instead of `nnet.pth`.  `nnet.pth` is the trained model.**
+**We use `nnet_ema.pth` for evaluation instead of `nnet.pth`.**
+
+**`nnet.pth` is the trained model, while `nnet_ema.pth` is the EMA of model weights.**
 
 ## Evaluation
 
