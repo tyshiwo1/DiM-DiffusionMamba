@@ -27,7 +27,7 @@ conda env create -f environment.yaml
 # if you want to update the env `mamba` with the contents in `~/mamba_attn/environment.yaml`:
 conda env update --name mamba --file ~/mamba_attn/environment.yaml --prune
 
-# Compiling Mamba. You need to successfully install casual-conv1d first.
+# Compiling Mamba. You need to successfully install causal-conv1d first.
 CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
 # If failing to compile, copy the files in ./build/ on another server which has compiled successfully; Maybe --user is necessary.
 ```
