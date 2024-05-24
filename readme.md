@@ -80,3 +80,14 @@ accelerate launch --multi_gpu --num_processes 8 --mixed_precision bf16 ./train_l
 
 # Citation
 
+```
+@misc{teng2024dim,
+      title={DiM: Diffusion Mamba for Efficient High-Resolution Image Synthesis}, 
+      author={Yao Teng and Yue Wu and Han Shi and Xuefei Ning and Guohao Dai and Yu Wang and Zhenguo Li and Xihui Liu},
+      year={2024},
+      eprint={2405.14224},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
