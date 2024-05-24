@@ -1,14 +1,14 @@
 # DiM: Diffusion Mamba for Efficient High-Resolution Image Synthesis
 
+The official implementation of our paper [DiM: Diffusion Mamba for Efficient High-Resolution Image Synthesis](https://arxiv.org/abs/2405.14224).
+
 <img src="assets/teaser256.png" alt="drawing" width="600"/>
 
 <img src="assets/teaser512.png" alt="drawing" width="600"/>
 
 <img src="assets/teaser1024.png" alt="drawing" width="800"/>
 
-## Paper
-
-Coming soooooon
+## Method Overview
 
 <img src="main.png" alt="drawing" width="500"/>
 
