@@ -165,17 +165,24 @@ def train(config):
 
     mp.set_start_method('spawn')
     gradient_accumulation_steps = config.get('gradient_accumulation_steps', 1)
+    
     try:
+        from accelerate.accelerator import is_deepspeed_available
+        is_not_deepspeed_available = not is_deepspeed_available()
+    except ImportError:
+        is_not_deepspeed_available = False
+    
+    if is_not_deepspeed_available:
+        logging.info('Using default accelerator')
+        accelerator = accelerate.Accelerator(
+            gradient_accumulation_steps = gradient_accumulation_steps,
+        )
+    else:
         deepspeed_plugin = accelerate.DeepSpeedPlugin(zero_stage=2, gradient_accumulation_steps=gradient_accumulation_steps)
         accelerator = accelerate.Accelerator(
             deepspeed_plugin=deepspeed_plugin
         )
         logging.info('Using deepspeed accelerator')
-    except:
-        logging.info('Using default accelerator')
-        accelerator = accelerate.Accelerator(
-            gradient_accumulation_steps = gradient_accumulation_steps,
-        )
         
     device = accelerator.device
     accelerate.utils.set_seed(config.seed, device_specific=True)
