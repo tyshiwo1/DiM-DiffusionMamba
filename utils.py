@@ -140,12 +140,7 @@ def get_nnet(name, pretrained_path=None, is_init_mamba=False, **kwargs):
         if is_init_mamba:
             model._init_weights()
         # # model = _init_weight_norm_fc_conv(model)
-    elif 'MambaUViT' in name:
-        from libs.mamba_uvit import MambaUViT
-        model = MambaUViT(**kwargs)
-    elif name == 'uvitmoe':
-        from libs.uvit import UViTMoe
-        model = UViTMoe(**kwargs)
+
     elif name == 'uvit':
         from libs.uvit import UViT
         model = UViT(**kwargs)

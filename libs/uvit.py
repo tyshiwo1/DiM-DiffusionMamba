@@ -276,24 +276,3 @@ class UViT(nn.Module):
         x = unpatchify(x, self.in_chans)
         x = self.final_layer(x)
         return x
-
-class UViTMoe(nn.Module):
-    def __init__(self, *args, is_last_double_channel=False, **kwargs):
-        super().__init__()
-        num_models = 3 if is_last_double_channel else 1
-        self.models = nn.ModuleList([
-            UViT(
-                *args, 
-                is_last_double_channel=False, 
-                **kwargs,
-            ) for _ in range(num_models)
-        ])
-    
-    def forward(self, *args, **kwargs, ):
-        ans = []
-        for model in self.models:
-            ans.append(
-                model(*args, **kwargs)
-            )
-        
-        return ans
