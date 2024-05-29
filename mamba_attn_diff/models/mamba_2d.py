@@ -91,7 +91,7 @@ class Mamba2DModel(Transformer2DModel):
         mamba_d_conv=4,
         mamba_expand=2,
         use_bidirectional_rnn=False,
-        mamba_type='dec',
+        mamba_type='enc',
         nested_order=0, 
         is_uconnect=True,
         no_ff=False,
