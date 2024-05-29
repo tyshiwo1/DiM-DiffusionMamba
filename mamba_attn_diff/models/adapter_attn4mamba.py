@@ -11,7 +11,6 @@ import torch.utils.checkpoint
 from einops import rearrange, repeat
 
 from diffusers.models.embeddings import SinusoidalPositionalEmbedding, get_2d_sincos_pos_embed
-from .s6m_module import S6MModule
 
 try:
     from causal_conv1d import causal_conv1d_fn, causal_conv1d_update
