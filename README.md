@@ -50,7 +50,7 @@ CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
 
 - failed Compilation: 
   
-  - The detected CUDA version mismatches the version that was used to **compile** PyTorch (12.1). Please make sure to use the same CUDA versions:
+  - The detected CUDA version mismatches the version that was used to **compile** PyTorch. Please make sure to use the same CUDA versions:
   
     **Answer**: you need to reinstall Pytorch with the correct version:
   
