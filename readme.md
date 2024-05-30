@@ -27,10 +27,35 @@ conda env create -f environment.yaml
 # if you want to update the env `mamba` with the contents in `~/mamba_attn/environment.yaml`:
 conda env update --name mamba --file ~/mamba_attn/environment.yaml --prune
 
-# Compiling Mamba. You need to successfully install causal-conv1d first.
+# Compiling Mamba. This step may take a lot of time, please be patient.
+# You need to successfully install causal-conv1d first.
 CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
-# If failing to compile, copy the files in ./build/ on another server which has compiled successfully; Maybe --user is necessary.
+# If failing to compile, you can copy the files in './build/' from another server which has compiled successfully; Maybe --user is necessary.
 ```
+
+**Frequently Asked Questions:**
+
+- If you encounter errors like `ModuleNotFoundError: No module named 'selective_scan_cuda'`:
+  
+  **Answer**: you need to correctly **install and compile** Mamba:
+  
+  ```bash
+  pip install causal-conv1d==1.2.0.post2 # The version maybe different depending on your cuda version
+CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
+  ```
+
+- failed Compilation: 
+  
+  - The detected CUDA version mismatches the version that was used to **compile** PyTorch (12.1). Please make sure to use the same CUDA versions:
+  
+    **Answer**: you need to reinstall Pytorch with the correct version:
+  
+    ```bash
+    # For example, on cuda 11.8:
+    conda install pytorch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 pytorch-cuda=11.8 -c pytorch -c nvidia
+    # Then, compiling the mamba in our project again:
+    CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
+    ```
 
 ## Preparation Before Training and Evaluation
 
@@ -55,6 +80,7 @@ Please follow [U-ViT](https://github.com/baofff/U-ViT), the same subtitle.
 
 ```sh
 # ImageNet 256x256 
+# If your model checkpoint path is not 'workdir/imagenet256_H_DiM/default/ckpts/425000.ckpt/nnet_ema.pt', you can change the path after '--nnet_path='
 accelerate launch --multi_gpu --gpu_ids 0,1,2,3,4,5,6,7 --main_process_port 20039 --num_processes 8 --mixed_precision bf16 ./eval_ldm_discrete.py --config=configs/imagenet256_H_DiM.py --nnet_path='workdir/imagenet256_H_DiM/default/ckpts/425000.ckpt/nnet_ema.pth'
 
 # ImageNet 512x512
