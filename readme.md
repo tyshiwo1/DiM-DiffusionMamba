@@ -27,6 +27,10 @@ conda env create -f environment.yaml
 # if you want to update the env `mamba` with the contents in `~/mamba_attn/environment.yaml`:
 conda env update --name mamba --file ~/mamba_attn/environment.yaml --prune
 
+# Switch to the correct environment
+conda activate mamba-attn
+conda install chardet
+
 # Compiling Mamba. This step may take a lot of time, please be patient.
 # You need to successfully install causal-conv1d first.
 CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
