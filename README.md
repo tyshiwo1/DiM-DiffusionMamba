@@ -45,7 +45,7 @@ CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
   
   ```bash
   pip install causal-conv1d==1.2.0.post2 # The version maybe different depending on your cuda version
-CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
+  CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
   ```
 
 - failed Compilation: 
