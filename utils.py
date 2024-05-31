@@ -445,7 +445,7 @@ def initialize_train_state(config, device):
             pretrained_path = pretrained_path.replace('_ema', '')
 
     nnet = get_nnet(**config.nnet)
-    if (pretrained_path is not None) and pretrained_path != old_pretrained_path: 
+    if (pretrained_path is not None) and pretrained_path != old_pretrained_path and os.path.exists(pretrained_path): 
         nnet, _ = load_pretrained_model(
             nnet, pretrained_path, )
     
