@@ -74,7 +74,7 @@ def get_config():
         sub_sequence_schedule=['reverse_single', 'layerwise_cross'],
         pos_encoding_type='learnable',
         scan_pattern_len=3,
-        is_align_exchange_q_kv=True,
+        is_align_exchange_q_kv=False,
     )
 
     config.dataset = d(
