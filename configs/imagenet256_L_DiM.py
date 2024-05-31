@@ -21,7 +21,7 @@ def get_config():
     config.max_grad_norm = 1.0
 
     config.train = d(
-        n_steps=500000, # 300000
+        n_steps=300000, # 300000
         batch_size=1024, 
         mode='cond',
         log_interval=10,
@@ -91,7 +91,7 @@ def get_config():
         path='assets/datasets/ImageNet',
         resolution=256,
         cfg=True,
-        p_uncond=0.1,
+        p_uncond=0.15, # aligned with u-vit
     )
 
     config.sample = d(
