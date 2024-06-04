@@ -70,7 +70,7 @@ Please follow [U-ViT](https://github.com/baofff/U-ViT), the same subtitle.
 |                            Model                             | FID  | training iterations | batch size |
 | :----------------------------------------------------------: | :--: | :-----------------: | :--------: |
 | [ImageNet 256x256 (Huge/2)](https://drive.google.com/drive/folders/1TTEXKKhnJcEV9jeZbZYlXjiPyV87ZhE0?usp=sharing) | 2.40 |        425K         |    768     |
-| ImageNet 256x256 (Huge/2) | 2.30 |        550K         |    768     |
+|                  ImageNet 256x256 (Huge/2)                   | 2.21 |        625K         |    768     |
 | [ImageNet 512x512 (fine-tuned Huge/2)](https://drive.google.com/drive/folders/1lupf4_dj4tWCpycnraGrgqh4P-6yK5Xe?usp=sharing) | 3.94 |      Fine-tune      |    240     |
 
 **About the checkpoint files:**
