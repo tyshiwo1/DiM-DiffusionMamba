@@ -250,7 +250,7 @@ def train(config):
             if accelerator.local_process_index == 0:
                 os.makedirs(save_path, exist_ok=True)
                 torch.save(train_state.step, os.path.join(save_path, 'step.pth'))
-                torch.save(train_state.lr_scheduler, os.path.join(save_path, 'lr_scheduler.pth'))
+                torch.save(train_state.lr_scheduler.state_dict(), os.path.join(save_path, 'lr_scheduler.pth'))
                 torch.save(nnet_ema.state_dict(), os.path.join(save_path, 'nnet_ema.pth'))
             
             accelerator.save_state(output_dir=save_path)
