@@ -35,6 +35,9 @@ conda install chardet
 # You need to successfully install causal-conv1d first.
 CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install --user -e .
 # If failing to compile, you can copy the files in './build/' from another server which has compiled successfully; Maybe --user is necessary.
+
+# Optional: if you have only 8 A100 to train Huge model with a batch size of 768, I recommand to install deepspeed to reduce the required GPU memory:
+pip install deepspeed
 ```
 
 **Frequently Asked Questions:**
