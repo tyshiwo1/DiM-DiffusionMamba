@@ -109,10 +109,10 @@ accelerate launch --multi_gpu --num_processes 8 --mixed_precision fp16 ./train.p
 # ImageNet 256x256 Large
 accelerate launch --multi_gpu --num_processes 8 --mixed_precision bf16 ./train_ldm_discrete.py --config=configs/imagenet256_L_DiM.py
 
-# ImageNet 256x256 Huge
+# ImageNet 256x256 Huge (Deepspeed Zero-2 for memory-efficient training)
 accelerate launch --multi_gpu --num_processes 8 --mixed_precision bf16 ./train_ldm_discrete.py --config=configs/imagenet256_H_DiM.py
 
-# ImageNet 512x512 Huge
+# ImageNet 512x512 Huge (Deepspeed Zero-2 for memory-efficient training)
 # Fine-tuning, and you need to carefully check whether
 # the pre-trained weights are in `workdir/imagenet256_H_DiM/default/ckpts/425000.ckpt/nnet_ema.pth`.
 # This location is set in the config file: `config.nnet.pretrained_path`.
