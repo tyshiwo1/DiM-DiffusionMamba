@@ -70,11 +70,11 @@ Please follow [U-ViT](https://github.com/baofff/U-ViT), the same subtitle.
 
 ## Checkpoints
 
-|                            Model                             | FID  | training iterations | batch size |
-| :----------------------------------------------------------: | :--: | :-----------------: | :--------: |
-| [ImageNet 256x256 (Huge/2)](https://drive.google.com/drive/folders/1TTEXKKhnJcEV9jeZbZYlXjiPyV87ZhE0?usp=sharing) | 2.40 |        425K         |    768     |
-|                  ImageNet 256x256 (Huge/2)                   | 2.21 |        625K         |    768     |
-| [ImageNet 512x512 (fine-tuned Huge/2)](https://drive.google.com/drive/folders/1lupf4_dj4tWCpycnraGrgqh4P-6yK5Xe?usp=sharing) | 3.94 |      Fine-tune      |    240     |
+|                            Model                             |   FID    | training iterations | batch size |
+| :----------------------------------------------------------: | :------: | :-----------------: | :--------: |
+| [ImageNet 256x256 (Huge/2)](https://drive.google.com/drive/folders/1TTEXKKhnJcEV9jeZbZYlXjiPyV87ZhE0?usp=sharing) |   2.40   |        425K         |    768     |
+| [ImageNet 256x256 (Huge/2)](https://drive.google.com/drive/folders/1ETllUm8Dpd8-vDHefQEXEWF9whdbyhL5?usp=sharing) | **2.21** |        625K         |    768     |
+| [ImageNet 512x512 (fine-tuned Huge/2)](https://drive.google.com/drive/folders/1lupf4_dj4tWCpycnraGrgqh4P-6yK5Xe?usp=sharing) |   3.94   |      Fine-tune      |    240     |
 
 **About the checkpoint files:**
 
@@ -87,8 +87,8 @@ Please follow [U-ViT](https://github.com/baofff/U-ViT), the same subtitle.
 **Use `eval_ldm_discrete.py` for evaluation and generating images with CFG**
 
 ```sh
-# ImageNet 256x256 Huge
-# If your model checkpoint path is not 'workdir/imagenet256_H_DiM/default/ckpts/425000.ckpt/nnet_ema.pt', you can change the path after '--nnet_path='
+# ImageNet 256x256 Huge, 425K
+# If your model checkpoint path is not 'workdir/imagenet256_H_DiM/default/ckpts/425000.ckpt/nnet_ema.pth', you can change the path after '--nnet_path='
 accelerate launch --multi_gpu --gpu_ids 0,1,2,3,4,5,6,7 --main_process_port 20039 --num_processes 8 --mixed_precision bf16 ./eval_ldm_discrete.py --config=configs/imagenet256_H_DiM.py --nnet_path='workdir/imagenet256_H_DiM/default/ckpts/425000.ckpt/nnet_ema.pth'
 
 # ImageNet 512x512 Huge
